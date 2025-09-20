@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -16,7 +18,7 @@ export default function LoginForm() {
 
   const handleSubmit = () => {
     console.log("Login attempt:", formData);
-    window.location.href = '/profile';
+    navigate('/profile');
   };
 
   // Check entry validity

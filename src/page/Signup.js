@@ -1,6 +1,8 @@
 import react, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function PopXAccountForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
@@ -21,7 +23,7 @@ export default function PopXAccountForm() {
   const handleSubmit = () => {
     console.log('Form Data:', formData);
     alert('Account created successfully!');
-    window.location.href = '/profile';
+    navigate('/profile');
   };
   // Check if required fields are filled
   const isFormValid = formData.fullName.trim() !== '' && formData.phoneNumber.trim() !== '' && formData.email.trim() !== '' && formData.password.trim() !== '';
